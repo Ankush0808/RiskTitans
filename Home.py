@@ -105,15 +105,41 @@ fig_risk = go.Figure(data=[go.Bar(
     y=values,
     marker_color=bar_colors,
     text=[f"{v:.2f} pts" for v in values],
-    textposition='outside'
+    textposition='inside',
+    textfont=dict(
+        size=20,  # Bigger text
+        color='black',  # Keep it white but we'll bold using weight in layout
+    )
 )])
+
 fig_risk.update_layout(
-    title=f"Risk Score Prediction for {business_state} Businesses",
-    xaxis_title="Transition",
-    yaxis_title="Score (pts)",
-    template="plotly_dark"
+    title=dict(
+        text=f"Risk Score Prediction for {business_state} Businesses",
+        font=dict(size=24, color='white')
+    ),
+    xaxis=dict(
+        title="Transition",
+        titlefont=dict(size=18, color='white'),
+        tickfont=dict(size=14, color='lightgray'),  # make x-axis darker
+        linecolor='white',  # darken axis line
+        mirror=True
+    ),
+    yaxis=dict(
+        title="Score (pts)",
+        titlefont=dict(size=18, color='white'),
+        tickfont=dict(size=14, color='lightgray'),  # make y-axis darker
+        linecolor='white',  # darken axis line
+        mirror=True
+    ),
+    template="plotly_dark",
+    font=dict(
+        family="Arial",
+        size=16,
+        color="white"
+    )
 )
 st.plotly_chart(fig_risk)
+
 
 # --- Pie Chart: Top 5 Counties in the selected state and incident type ---
 st.subheader(f"Top 5 Counties in {state} for {incident_type}")
