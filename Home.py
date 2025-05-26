@@ -24,7 +24,7 @@ def load_models(risk_columns):
 # --- Load and cache incident data ---
 @st.cache_data
 def load_incident_data():
-    return pd.read_csv(r"C:\Users\Lenovo\changed_data.csv")
+    return pd.read_csv(r"changed_data.csv")
 
 # --- Load data and models ---
 state_county_map = load_state_county_map()
