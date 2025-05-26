@@ -8,7 +8,7 @@ import plotly.express as px
 # --- Load and cache state-county mapping ---
 @st.cache_data
 def load_state_county_map():
-    with open(r"C:\Users\Lenovo\state_county_final_dict.json", 'r') as f:
+    with open(r"state_county_final_dict.json", 'r') as f:
         return json.load(f)
 
 # --- Load and cache ML models ---
